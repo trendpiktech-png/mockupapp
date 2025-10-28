@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numcount Mockups - Key Generator</title>
+    <style>
+        /* Re-using theme from index.css for consistency */
+        :root {
+          --background-color: #121212;
+          --surface-color: #1e1e1e;
+          --primary-color: #6a5acd;
+          --primary-hover-color: #7b68ee;
+          --text-color: #e0e0e0;
+          --text-secondary-color: #a0a0a0;
+          --border-color: #333;
+          --success-color: #52ff89;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .generator-container {
+            background-color: var(--surface-color);
+            padding: 2rem 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary-color);
+            font-weight: 500;
+        }
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-color);
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        button {
+            width: 100%;
+            padding: 0.85rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        button:hover {
+            background-color: var(--primary-hover-color);
+        }
+        .result-container {
+            margin-top: 2rem;
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            display: none; /* Hidden by default */
+        }
+        .result-container h2 {
+            font-size: 1rem;
+            color: var(--text-secondary-color);
+            margin-bottom: 0.75rem;
+        }
+        .generated-key {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            color: var(--success-color);
+            font-weight: bold;
+            word-break: break-all;
+            padding: 0.5rem;
+            background-color: var(--surface-color);
+            border-radius: 6px;
+            cursor: pointer;
+            position: relative;
+        }
+        .copy-feedback {
+            font-size: 0.8rem;
+            color: var(--text-secondary-color);
+            margin-top: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="generator-container">
+        <h1>Admin Key Generator</h1>
+        <div class="input-group">
+            <label for="deviceId">User's Device ID</label>
+            <input type="text" id="deviceId" placeholder="Enter the user's Device ID">
+        </div>
+        <div class="input-group">
+            <label for="credits">Credits to Add</label>
+            <input type="number" id="credits" placeholder="e.g., 50" min="1">
+        </div>
+        <button id="generateBtn">Generate Key</button>
+
+        <div class="result-container" id="resultContainer">
+            <h2>Generated Unlock Key</h2>
+            <p id="generatedKey" class="generated-key" title="Click to copy"></p>
+            <p id="copyFeedback" class="copy-feedback">Copied to clipboard!</p>
+        </div>
+    </div>
+    <script src="key-generator.js"></script>
+</body>
+</html>
